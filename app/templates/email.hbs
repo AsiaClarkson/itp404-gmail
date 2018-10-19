@@ -1,0 +1,58 @@
+  <style>
+  body {
+    font-family: Avenir, sans-serif;
+    font-size: 12pt;
+    background-image: linear-gradient(to bottom right, #E0EAFC, #CFDEF3);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+    #container{
+      height:600px; 
+      width:940px; 
+      overflow: scroll; 
+      background-color:rgba(255,255,255,.6); 
+      margin-left:300px; 
+      padding-left:30px;
+      position: relative;
+      top: 90px;
+      padding-right:60px;
+
+  }
+  #options{
+    width:1020px; 
+    height: 50px;
+    background-color:rgba(255,255,255,.6); 
+    margin-left:300px; 
+      padding-left:10px;
+      position: relative;
+      top: 80px;
+  }
+  #options img{
+    margin: 14px 10px -2px 10px;
+  }
+  h1{
+      margin-bottom: 0px;
+  }
+  #arrow{
+
+  }
+  </style>
+  <div id='options'>
+  {{#link-to "index"}}
+  <img id='arrow' src='https://image.flaticon.com/icons/svg/109/109618.svg' width=25px>
+  {{/link-to}}
+  <img id='trash' src='https://image.flaticon.com/icons/svg/126/126468.svg' width=25px onclick={{action "deleteEmail" model}}>
+  </div>
+<div id='container'>
+<h1>{{model.subject}}</h1>
+<strong>{{model.from}}</strong> <span style='font-size: 14px'>&nbsp; &nbsp;{{model.emailurl}}</span> <br>
+<span style='font-size:10px;'>to {{model.to}}</span><br><br>
+
+{{model.message}}
+
+</div>
+{{outlet}}

@@ -1,0 +1,86 @@
+<style>
+  body {
+    font-family: Avenir, sans-serif;
+    font-size: 12pt;
+    background-image: linear-gradient(to bottom right, #E0EAFC, #CFDEF3);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  #container{
+      height:600px; 
+      width:1000px; 
+      overflow: scroll; 
+      background-color:rgba(255,255,255,.6); 
+      margin-left:300px; 
+      position: relative;
+      top: 90px;
+
+  }
+
+  #from {
+    width: 200px;
+  }
+
+  #date {
+    max-width: 400px;
+    text-align: right;
+    float:right;
+  }
+
+  #subject {
+      max-width:300px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+  .truncate{
+      width: 380px ;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+
+  table {
+    width: 1000px;
+    padding: 5px 13px 0px 5px;
+  }
+
+  tr:hover {
+    background-color:white;
+  }
+hr{
+        border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+</style>
+<div id='container'>
+  <table>
+    {{#each model as |email|}}
+
+    <tr>
+
+      {{#link-to "email" email.id}}
+
+      <td id='from'><strong>{{email.from}}</strong></td>
+      <td id='subject'><strong>{{email.subject}}</strong></td>
+      <td id='divider'>-</td>
+      <td id='preview' class='truncate' align=right><span >{{email.message}}</span></td>
+      <td id='space'></td>
+      <td id='date'><strong>Oct 15</strong></td>
+
+      {{/link-to}}
+    </tr>
+    <hr>
+    {{/each}}
+    <</table> </div> {{outlet}}
