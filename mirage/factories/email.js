@@ -18,5 +18,8 @@ export default Factory.extend({
     },
     emailurl(){
         return faker.internet.email();
+    },
+    starred(){
+        return false;
     }
 });
