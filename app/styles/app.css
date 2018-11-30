@@ -1,3 +1,16 @@
-.starred{
+.starred {
     color: gold;
+}
+.starrednt {
+    color: rgba(0,0,0,.2);
+}
+.star-button {
+    display: inline;
+    float: right;
+    z-index: -2;
+    vertical-align: middle;
+}
+.invisible {
+    background: transparent;
+    border: none;
 }

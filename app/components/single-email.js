@@ -4,7 +4,7 @@ export default Component.extend({
     starred: false,
     actions:{
         star(email, newValue){
-            console.log('clicked');
+            // console.log('clicked');
             email.set('starred', newValue);
             email.save();
         }

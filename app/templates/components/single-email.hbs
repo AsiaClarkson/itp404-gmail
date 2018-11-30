@@ -1,19 +1,22 @@
-    <tr>
+<tr>
 
-      
-      <td>
-        <StarButton id='star' @starred={{@email.starred}} @onClick={{action "star" @email}} />
-      </td>
-      {{#link-to "email" @email.id}}
-      <td id='from'><strong>{{@email.from}}</strong>
+  
+  <td>
+    <StarButton
+      id="star"
+      @starred={{@email.starred}}
+      @onClick={{action "star" @email}}
+    />
+  </td>
+  {{#link-to "email" @email.id}}
+    <td id="from">
+      <strong>{{@email.from}}</strong>
+    </td>
 
-      </td>
-
-      <td id='subject'><strong>{{@email.subject}}</strong></td>
-      <td id='divider'>-</td>
-      <td id='preview' class='truncate' align=right><span>{{truncate-text @email.message 40 }}</span></td>
-      <td id='space'></td>
-      <td id='date'><strong>Oct 15</strong></td>
-
-      {{/link-to}}
-    </tr>
+    <td id="subject"><strong>{{@email.subject}}</strong></td>
+    <td id="divider">-</td>
+    <td id="preview" class="truncate" align="right"><span>{{truncate-text @email.message 40 }}</span></td>
+    <td id="space"></td>
+    <td id="date"><strong>Oct 15</strong></td>
+  {{/link-to}}
+</tr>

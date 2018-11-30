@@ -1,4 +1,4 @@
-  <style>
+<style>
   body {
     font-family: Avenir, sans-serif;
     font-size: 12pt;
@@ -40,19 +40,39 @@
   #arrow{
 
   }
-  </style>
-  <div id='options'>
+  .sender {
+    font-size: 14px;
+  }
+  .recipient {
+    font-size: 10px;
+  }
+</style>
+<div id="options">
   {{#link-to "index"}}
-  <img id='arrow' src='https://image.flaticon.com/icons/svg/109/109618.svg' width=25px>
+    <img
+      id="arrow"
+      src="https://image.flaticon.com/icons/svg/109/109618.svg"
+      width="25px"
+      alt="Back"
+    >
   {{/link-to}}
-  <img id='trash' src='https://image.flaticon.com/icons/svg/126/126468.svg' width=25px onclick={{action "deleteEmail" model}}>
-  </div>
-<div id='container'>
-<h1>{{model.subject}}</h1>
-<strong>{{model.from}}</strong> <span style='font-size: 14px'>&nbsp; &nbsp;{{model.emailurl}}</span> <br>
-<span style='font-size:10px;'>to {{model.to}}</span><br><br>
-
-{{model.message}}
-
+  <button 
+    onclick={{action "deleteEmail" model}} 
+    class="invisible" 
+    data-test="delete-email" 
+  >
+    <img
+      id="trash"
+      src="https://image.flaticon.com/icons/svg/126/126468.svg"
+      width="25px"
+      alt="Trash"
+    >
+  </button>
+</div>
+<div id="container">
+  <h1 data-test="subject">{{model.subject }}</h1>
+  <strong data-test="from">{{model.from}}</strong> <span class="sender">&nbsp; &nbsp;<span data-test="emailurl">{{model.emailurl}}</span></span> <br>
+  <span class="recipient">to <span data-test="to">{{model.to}}</span></span><br><br>
+  <span data-test="message">{{model.message}}</span>
 </div>
 {{outlet}}

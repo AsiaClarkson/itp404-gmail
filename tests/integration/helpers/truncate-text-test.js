@@ -6,12 +6,20 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Helper | truncate-text', function(hooks) {
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
-  test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+  test('on inital render', async function(assert){
+    this.set('message', 'texting');
+    this.set('limit', '4');
+    await render(hbs `{{truncate-text message limit}}`);
 
-    await render(hbs`{{truncate-text inputValue}}`);
-
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent.trim(), 'text...');
   });
+
+  // Replace this with your real tests.
+  // test('it renders', async function(assert) {
+  //   this.set('inputValue', '1234');
+
+  //   await render(hbs`{{truncate-text inputValue}}`);
+
+  //   assert.equal(this.element.textContent.trim(), '1234');
+  // });
 });

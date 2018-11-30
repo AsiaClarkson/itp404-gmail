@@ -88,45 +88,50 @@
     cursor: pointer;
   }
 </style>
-<div id='container-starred'>
+<div id="container-starred">
   <table>
-    
-    {{#each model as |email|}}
-    {{#if email.starred}}
- <SingleEmail  @email={{email}}/>
-    <hr>
-    {{else}}
-    {{/if}}
-    {{/each}}
-    </table> 
-    </div>
+    <tbody>
+      {{#each model as |email|}}
+        {{#if email.starred}}
+          <SingleEmail  @email={{email}} data-test="email" data-test-starred="starred"/>
+          <hr>
+        {{else}}
+        {{/if}}
+      {{/each}}
+    </tbody>
+  </table> 
+</div>
 
     {{!-- All Emails --}}
-<div id='container'>
+<div id="container">
   <table>
-    {{#each model as |email|}}
-    {{#unless email.starred}}
-    <SingleEmail  @email={{email}}/>
-    {{!-- <tr>
+    <tbody>
+      {{#each model as |email|}}
+        {{#unless email.starred}}
+          <SingleEmail  @email={{email}} data-test="email" data-test-starred="starrednt"/>
+          {{!-- <tr>
 
-      
-      <td>
-        <StarButton id='star' @starred={{email.starred}} @onClick={{action "star" email}} />
-      </td>
-      {{#link-to "email" email.id}}
-      <td id='from'><strong>{{email.from}}</strong>
+            
+            <td>
+              <StarButton id='star' @starred={{email.starred}} @onClick={{action "star" email}} />
+            </td>
+            {{#link-to "email" email.id}}
+            <td id='from'><strong>{{email.from}}</strong>
 
-      </td>
+            </td>
 
-      <td id='subject'><strong>{{email.subject}}</strong></td>
-      <td id='divider'>-</td>
-      <td id='preview' class='truncate' align=right><span>{{truncate-text email.message 40 }}</span></td>
-      <td id='space'></td>
-      <td id='date'><strong>Oct 15</strong></td>
+            <td id='subject'><strong>{{email.subject}}</strong></td>
+            <td id='divider'>-</td>
+            <td id='preview' class='truncate' align=right><span>{{truncate-text email.message 40 }}</span></td>
+            <td id='space'></td>
+            <td id='date'><strong>Oct 15</strong></td>
 
-      {{/link-to}}
-    </tr> --}}
-    <hr>
-    {{/unless}}
-    {{/each}}
-    </table> </div> {{outlet}}
+            {{/link-to}}
+          </tr> --}}
+          <hr>
+        {{/unless}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{outlet}}

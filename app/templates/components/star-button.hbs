@@ -1,9 +1,9 @@
-<td onclick={{action "star"}}>
-  {{#if @starred}}
-  <span style='color:gold'>&#9733;</span>
-  
-  {{else}}
-  <span style='color: rgba(0,0,0,.2)'>&#9733;</span>
-
-  {{/if}}
+<td class="star-button">
+  <button onclick={{action "star"}}>
+    {{#if @starred}}
+      <span class="starred">&#9733;</span>
+    {{else}}
+      <span class="starrednt">&#9733;</span>
+    {{/if}}
+  </button>
 </td>

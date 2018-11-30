@@ -5,7 +5,7 @@ export default Controller.extend({
       createEmail(event) {
         event.preventDefault();
         //read out the inputs
-        console.log(this.title, this.body);
+        // console.log(this.title, this.body);
         //save email model
         let email = this.store.createRecord('email', {
           to: this.to,
