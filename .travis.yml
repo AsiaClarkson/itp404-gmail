@@ -26,4 +26,3 @@ script:
   - npm run lint:js
   - npm test
 
-[![Build Status](https://travis-ci.org/AsiaClarkson/itp404-gmail.svg?branch=master)](https://travis-ci.org/AsiaClarkson/itp404-gmail)
